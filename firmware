@@ -1,0 +1,440 @@
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <RTClib.h>
+
+// =====================================================
+// PIN DEFINITIONS — MATCHING YOUR PCB
+// =====================================================
+
+#define OLED_SDA       21
+#define OLED_SCL       22
+
+#define BUZZER_PIN     25
+
+#define BTN_SET        26
+#define BTN_UP         27
+#define BTN_SNOOZE     32
+
+#define RTC_INT        33
+#define BAT_SENSE      34
+
+// =====================================================
+// OLED
+// =====================================================
+
+#define SCREEN_WIDTH   128
+#define SCREEN_HEIGHT  64
+
+Adafruit_SSD1306 display(
+  SCREEN_WIDTH,
+  SCREEN_HEIGHT,
+  &Wire,
+  -1
+);
+
+// =====================================================
+// RTC
+// =====================================================
+
+RTC_DS3231 rtc;
+
+// =====================================================
+// ALARM
+// =====================================================
+
+int alarmHour = 7;
+int alarmMinute = 0;
+
+bool alarmEnabled = true;
+bool alarmRinging = false;
+
+int settingMode = 0;
+// 0 = normal
+// 1 = setting hour
+// 2 = setting minute
+
+unsigned long lastButtonTime = 0;
+unsigned long snoozeUntil = 0;
+
+// =====================================================
+// BUTTON FUNCTION
+// Buttons are active LOW because they connect to GND.
+// =====================================================
+
+bool pressed(int pin)
+{
+  if (digitalRead(pin) == LOW)
+  {
+    if (millis() - lastButtonTime > 250)
+    {
+      lastButtonTime = millis();
+
+      while (digitalRead(pin) == LOW)
+      {
+        delay(5);
+      }
+
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// =====================================================
+// BATTERY VOLTAGE
+//
+// Your schematic uses approximately:
+// VBAT -> 100k -> BAT_SENSE -> 100k -> GND
+//
+// Therefore:
+// Battery voltage = ADC voltage × 2
+// =====================================================
+
+float getBatteryVoltage()
+{
+  uint32_t millivolts = analogReadMilliVolts(BAT_SENSE);
+
+  float adcVoltage = millivolts / 1000.0;
+
+  return adcVoltage * 2.0;
+}
+
+// =====================================================
+// NORMAL DISPLAY
+// =====================================================
+
+void showClock(DateTime now)
+{
+  display.clearDisplay();
+
+  display.setTextColor(SSD1306_WHITE);
+
+  // Time
+  display.setTextSize(2);
+  display.setCursor(10, 3);
+
+  if (now.hour() < 10)
+    display.print("0");
+
+  display.print(now.hour());
+  display.print(":");
+
+  if (now.minute() < 10)
+    display.print("0");
+
+  display.print(now.minute());
+
+  // Seconds
+  display.setTextSize(1);
+  display.setCursor(52, 27);
+
+  if (now.second() < 10)
+    display.print("0");
+
+  display.print(now.second());
+
+  // Alarm
+  display.setCursor(5, 40);
+  display.print("Alarm ");
+
+  if (alarmHour < 10)
+    display.print("0");
+
+  display.print(alarmHour);
+  display.print(":");
+
+  if (alarmMinute < 10)
+    display.print("0");
+
+  display.print(alarmMinute);
+
+  if (alarmEnabled)
+    display.print(" ON");
+  else
+    display.print(" OFF");
+
+  // Battery
+  display.setCursor(5, 54);
+  display.print("BAT ");
+  display.print(getBatteryVoltage(), 2);
+  display.print("V");
+
+  display.display();
+}
+
+// =====================================================
+// ALARM SETTING DISPLAY
+// =====================================================
+
+void showAlarmSetting()
+{
+  display.clearDisplay();
+
+  display.setTextColor(SSD1306_WHITE);
+
+  display.setTextSize(1);
+  display.setCursor(32, 4);
+  display.print("SET ALARM");
+
+  display.setTextSize(2);
+  display.setCursor(35, 22);
+
+  if (alarmHour < 10)
+    display.print("0");
+
+  display.print(alarmHour);
+  display.print(":");
+
+  if (alarmMinute < 10)
+    display.print("0");
+
+  display.print(alarmMinute);
+
+  display.setTextSize(1);
+
+  display.setCursor(5, 50);
+
+  if (settingMode == 1)
+    display.print("UP=Hour  SET=Next");
+  else
+    display.print("UP=Min   SET=Save");
+
+  display.display();
+}
+
+// =====================================================
+// SET BUTTON
+// =====================================================
+
+void handleSet()
+{
+  if (!pressed(BTN_SET))
+    return;
+
+  if (settingMode == 0)
+  {
+    // Enter alarm setting
+    settingMode = 1;
+  }
+  else if (settingMode == 1)
+  {
+    // Hour finished, set minutes
+    settingMode = 2;
+  }
+  else
+  {
+    // Save alarm
+    settingMode = 0;
+    alarmEnabled = true;
+  }
+}
+
+// =====================================================
+// UP BUTTON
+// =====================================================
+
+void handleUp()
+{
+  if (!pressed(BTN_UP))
+    return;
+
+  if (settingMode == 1)
+  {
+    alarmHour++;
+
+    if (alarmHour >= 24)
+      alarmHour = 0;
+  }
+
+  else if (settingMode == 2)
+  {
+    alarmMinute++;
+
+    if (alarmMinute >= 60)
+      alarmMinute = 0;
+  }
+}
+
+// =====================================================
+// SNOOZE BUTTON
+// =====================================================
+
+void handleSnooze()
+{
+  if (!pressed(BTN_SNOOZE))
+    return;
+
+  if (alarmRinging)
+  {
+    alarmRinging = false;
+
+    digitalWrite(BUZZER_PIN, LOW);
+
+    // 5 minute snooze
+    snoozeUntil = millis() + 300000UL;
+  }
+}
+
+// =====================================================
+// ALARM CHECK
+// =====================================================
+
+void checkAlarm(DateTime now)
+{
+  if (!alarmEnabled)
+  {
+    digitalWrite(BUZZER_PIN, LOW);
+    return;
+  }
+
+  // Snooze active
+  if (millis() < snoozeUntil)
+  {
+    digitalWrite(BUZZER_PIN, LOW);
+    return;
+  }
+
+  // Start alarm at the programmed time
+  if (now.hour() == alarmHour &&
+      now.minute() == alarmMinute &&
+      now.second() < 3)
+  {
+    alarmRinging = true;
+  }
+
+  // Buzzer pattern
+  if (alarmRinging)
+  {
+    if ((millis() / 300) % 2 == 0)
+      digitalWrite(BUZZER_PIN, HIGH);
+    else
+      digitalWrite(BUZZER_PIN, LOW);
+  }
+  else
+  {
+    digitalWrite(BUZZER_PIN, LOW);
+  }
+}
+
+// =====================================================
+// SETUP
+// =====================================================
+
+void setup()
+{
+  Serial.begin(115200);
+
+  // Buttons
+  pinMode(BTN_SET, INPUT_PULLUP);
+  pinMode(BTN_UP, INPUT_PULLUP);
+  pinMode(BTN_SNOOZE, INPUT_PULLUP);
+
+  // Buzzer transistor
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW);
+
+  // RTC interrupt
+  // Your schematic already has an external 4.7k pull-up.
+  pinMode(RTC_INT, INPUT);
+
+  // Battery ADC
+  pinMode(BAT_SENSE, INPUT);
+
+  analogReadResolution(12);
+  analogSetPinAttenuation(
+    BAT_SENSE,
+    ADC_11db
+  );
+
+  // I2C
+  Wire.begin(
+    OLED_SDA,
+    OLED_SCL
+  );
+
+  // OLED
+  if (!display.begin(
+        SSD1306_SWITCHCAPVCC,
+        0x3C))
+  {
+    Serial.println("OLED ERROR");
+
+    while (true)
+    {
+      delay(1000);
+    }
+  }
+
+  // RTC
+  if (!rtc.begin())
+  {
+    Serial.println("RTC ERROR");
+
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setCursor(20, 25);
+    display.print("RTC ERROR");
+    display.display();
+
+    while (true)
+    {
+      delay(1000);
+    }
+  }
+
+  // If RTC lost its time
+  if (rtc.lostPower())
+  {
+    Serial.println("RTC lost power.");
+
+    // Sets RTC to the computer compile time.
+    rtc.adjust(
+      DateTime(
+        F(__DATE__),
+        F(__TIME__)
+      )
+    );
+  }
+
+  // Startup screen
+  display.clearDisplay();
+
+  display.setTextSize(1);
+  display.setCursor(22, 25);
+  display.print("SMART ALARM");
+
+  display.display();
+
+  delay(1500);
+}
+
+// =====================================================
+// MAIN LOOP
+// =====================================================
+
+void loop()
+{
+  DateTime now = rtc.now();
+
+  // Buttons
+  handleSet();
+  handleUp();
+  handleSnooze();
+
+  // Alarm
+  checkAlarm(now);
+
+  // Display
+  if (settingMode == 0)
+  {
+    showClock(now);
+  }
+  else
+  {
+    showAlarmSetting();
+  }
+
+  delay(100);
+}
