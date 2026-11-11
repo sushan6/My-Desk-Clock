@@ -1,25 +1,27 @@
-ID,Component,Designators,Footprint,Required Quantity,Purchase Quantity,Supplier,Supplier Link,Unit Price (INR),Minimum Order Value (INR),Actual Purchase Total (INR),Estimated Required-Qty Cost (INR),MOQ/MOV Check,Found
-1,CR2032 battery holder,BT1,BatteryHolder_Keystone_1057_1x2032,1,,Lion Circuits,https://www.lioncircuits.com/parts/1057,198,,,198,,Yes
-2,Buzzer,BZ1,Buzzer_12x9.5RM7.6,1,,Robu.in,https://robu.in/product/ac1470-cldz-piezoelectric-passive-buzzer-1-25v14x7mm/,8,,,8,Check supplier minimum order value,Yes
-3,100 nF capacitors,"C1, C4, C11",C_0805_2012Metric,3,,Robu.in,https://robu.in/product/100nf-0805-surface-mount-multilayer-ceramic-capacitor-pack-of-40/,0.79,,,2.37,Check supplier minimum order value,Yes
-4,10 µF capacitors,"C2, C7, C8, C9, C10",C_0805_2012Metric,6,,Robu.in,https://robu.in/product/0805x106k250nt-fh-25v-10uf-x5r%C2%B110-0805-multilayer-ceramic-capacitors-mlcc-smd-smt-rohs/,4.87,,,29.22,Check supplier minimum order value,Yes
-5,1 µF capacitors,"C3, C5",C_0805_2012Metric,2,,Robu.in,https://robu.in/product/1uf-1000nf-50v-capacitor-0805-smd-package-pack-of-10/,1.35,,,2.70,Check supplier minimum order value,Yes
-6,4.7 µF capacitor,C6,C_0805_2012Metric,1,,Robu.in,https://robu.in/product/20121h475k125ab-tdk-ap-smd-ml-4-7-%c2%b5f-50-v-0805-pack-of-1/,14,,,14,,Yes
-7,1x6 pin header,J1,PinHeader_1x06_P2.54mm_Vertical,1,,Robu.in,https://robu.in/product/2-54mm-1x40-pin-male-single-row-straight-short-header-strip-pack-of-3/,9,,,9,Check supplier minimum order value,Yes
-8,1x4 pin header,J2,PinHeader_1x04_P2.54mm_Vertical,1,,Robu.in,https://robu.in/product/2-54mm-1x40-pin-male-single-row-straight-short-header-strip-pack-of-3/,9,,,9,Check supplier minimum order value,Yes
-9,USB-C receptacle,J3,USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,1,,Robu.in,https://robu.in/product/u262-161n-4bs165-xkb-5a-1-16p-female-type-c-smd-usb-connectors-rohs/,31,,,31,,Yes
-10,JST PH 2-pin connector,J4,JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal,1,,Robu.in,https://robu.in/product/wafer-xh2-54-2pzz-xunpu-1x2p-xh-2p/,0,,,0,Check supplier minimum order value,Yes
-11,1.5 µH inductor,L1,L_1008_2520Metric_Pad1.43x2.20mm_HandSolder,1,,Robu.in,https://robu.in/product/dfe252012p-1r5mp2-murata-power-inductor-smd-1-5-%c2%b5h-shielded-3-a1008-2520-metric/,3,,,3,Check supplier minimum order value,Yes
-12,NPN transistor,Q1,SOT-23,1,,Robu.in,https://robu.in/product/s8050-kuu-25v-300mw-500ma-npn-sot-23-bipolar-bjt-rohs/,0.90,,,0.90,Check supplier minimum order value,Yes
-13,10 kΩ resistors,"R1, R2, R10",R_0805_2012Metric,3,,Robu.in,https://robu.in/product/rc0805jr-0710kl-yageo-smd-chip-resistor-10-kohm-pack-of-10/,0.29,,,0.87,Check supplier minimum order value,Yes
-14,4.7 kΩ resistors,"R3, R4, R13",R_0805_2012Metric,3,,Robu.in,https://robu.in/product/crcw08054k70fkeac-vishay-intertech-4-7k-0805-chip-resistor/,0.70,,,2.10,Check supplier minimum order value,Yes
-15,100 kΩ resistors,"R5, R6",R_0805_2012Metric,2,,Robu.in,https://robu.in/product/rc0805fr-13100kl-yageo-smd-chip-resistor-100-kohm/,1.03,,,2.06,Check supplier minimum order value,Yes
-16,1 kΩ resistor,R7,R_0805_2012Metric,1,,Robu.in,https://robu.in/product/1k-ohm-1-4w-0805-surface-mount-chip-resistor-pack-of-10/,0.43,,,0.43,Check supplier minimum order value,Yes
-17,5.1 kΩ resistors,"R8, R9",R_0805_2012Metric,2,,Robu.in,https://robu.in/product/era6aeb102vpanasonicsmd-chip-resistor-1-kohm/,3.59,,,7.18,Check supplier minimum order value,Yes
-18,1.78 kΩ resistor,R11,R_0805_2012Metric,1,,Mouser India,https://www.mouser.in/en/ProductDetail/Panasonic-Industry/ERJ-P06F1781V,22,,,22,,Yes
-19,3 kΩ resistor,R12,R_0805_2012Metric,1,,Robu.in,https://robu.in/product/rc0805fr-073kl-yageo-res-thick-film-0805-3k-ohm/,0.20,,,0.20,Check supplier minimum order value,Yes
-20,Tactile push buttons,"SW1, SW2, SW3, SW4, SW5",SW_PUSH_6mm,5,,Robu.in,https://robu.in/product/6x6x5mm-tactile-push-button-switch-pack-of-20/,1.60,,,8.00,Check supplier minimum order value,Yes
-21,ESP32-WROOM-32E,U1,ESP32-WROOM-32E,1,,Robu.in,https://robu.in/product/espressif-esp32-wroom-32-4m-32mbit-flash-wifi-bluetooth-module/,301,,,301,,Yes
-22,DS3231M RTC,U2,SOIC-16W_7.5x10.3mm_P1.27mm,1,,Robu.in,https://robu.in/product/ds3231mtrl-analog-devices-real-time-clock-ic/,360,,,360,,Yes
-23,BQ24074RGT charger IC,U3,VQFN-16-1EP_3x3mm_P0.5mm_EP1.6x1.6mm,1,,Robu.in,https://robu.in/product/bq24075rgtt-texas-instruments-vqfn-16-ep3x3-battery-management-rohs/,180,,,180,,Yes
-24,TPS63031DSK buck-boost IC,U4,WSON-10-1EP_2.5x2.5mm_P0.5mm_EP1.2x2mm,1,,Robu.in,https://robu.in/product/tps63031dskr-texas-instruments-buck-boost-switching-regulator-ic/,178,,,178,,Yes
+ID,Component,Designators,Footprint,Required Quantity,Purchase Quantity,Supplier,Supplier Link,Unit Price (USD),Minimum Order Value (USD),Actual Purchase Total (USD),Estimated Required-Qty Cost (USD),MOQ/MOV Check,Found
+1,CR2032 battery holder,BT1,BatteryHolder_Keystone_1057_1x2032,1,,Lion Circuits,https://www.lioncircuits.com/parts/1057,2.1113,,,2.11,,Yes
+2,Buzzer,BZ1,Buzzer_12x9.5RM7.6,1,,Robu.in,https://robu.in/product/ac1470-cldz-piezoelectric-passive-buzzer-1-25v14x7mm/,0.0853,,,0.09,Check supplier minimum order value,Yes
+3,100 nF capacitors,"C1, C4, C11",C_0805_2012Metric,3,,Robu.in,https://robu.in/product/100nf-0805-surface-mount-multilayer-ceramic-capacitor-pack-of-40/,0.0084,,,0.03,Check supplier minimum order value,Yes
+4,10 µF capacitors,"C2, C7, C8, C9, C10",C_0805_2012Metric,6,,Robu.in,https://robu.in/product/0805x106k250nt-fh-25v-10uf-x5r%C2%B110-0805-multilayer-ceramic-capacitors-mlcc-smd-smt-rohs/,0.0520,,,0.31,Check supplier minimum order value,Yes
+5,1 µF capacitors,"C3, C5",C_0805_2012Metric,2,,Robu.in,https://robu.in/product/1uf-1000nf-50v-capacitor-0805-smd-package-pack-of-10/,0.0144,,,0.03,Check supplier minimum order value,Yes
+6,4.7 µF capacitor,C6,C_0805_2012Metric,1,,Robu.in,https://robu.in/product/20121h475k125ab-tdk-ap-smd-ml-4-7-%c2%b5f-50-v-0805-pack-of-1/,0.1494,,,0.15,,Yes
+7,1x6 pin header,J1,PinHeader_1x06_P2.54mm_Vertical,1,,Robu.in,https://robu.in/product/2-54mm-1x40-pin-male-single-row-straight-short-header-strip-pack-of-3/,0.0960,,,0.10,Check supplier minimum order value,Yes
+8,1x4 pin header,J2,PinHeader_1x04_P2.54mm_Vertical,1,,Robu.in,https://robu.in/product/2-54mm-1x40-pin-male-single-row-straight-short-header-strip-pack-of-3/,0.0960,,,0.10,Check supplier minimum order value,Yes
+9,USB-C receptacle,J3,USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,1,,Robu.in,https://robu.in/product/u262-161n-4bs165-xkb-5a-1-16p-female-type-c-smd-usb-connectors-rohs/,0.3307,,,0.33,,Yes
+10,JST PH 2-pin connector,J4,JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal,1,,Robu.in,https://robu.in/product/wafer-xh2-54-2pzz-xunpu-1x2p-xh-2p/,0.0000,,,0.00,Check supplier minimum order value,Yes
+11,1.5 µH inductor,L1,L_1008_2520Metric_Pad1.43x2.20mm_HandSolder,1,,Robu.in,https://robu.in/product/dfe252012p-1r5mp2-murata-power-inductor-smd-1-5-%c2%b5h-shielded-3-a1008-2520-metric/,0.0320,,,0.03,Check supplier minimum order value,Yes
+12,NPN transistor,Q1,SOT-23,1,,Robu.in,https://robu.in/product/s8050-kuu-25v-300mw-500ma-npn-sot-23-bipolar-bjt-rohs/,0.0096,,,0.01,Check supplier minimum order value,Yes
+13,10 kΩ resistors,"R1, R2, R10",R_0805_2012Metric,3,,Robu.in,https://robu.in/product/rc0805jr-0710kl-yageo-smd-chip-resistor-10-kohm-pack-of-10/,0.0031,,,0.01,Check supplier minimum order value,Yes
+14,4.7 kΩ resistors,"R3, R4, R13",R_0805_2012Metric,3,,Robu.in,https://robu.in/product/crcw08054k70fkeac-vishay-intertech-4-7k-0805-chip-resistor/,0.0075,,,0.02,Check supplier minimum order value,Yes
+15,100 kΩ resistors,"R5, R6",R_0805_2012Metric,2,,Robu.in,https://robu.in/product/rc0805fr-13100kl-yageo-smd-chip-resistor-100-kohm/,0.0110,,,0.02,Check supplier minimum order value,Yes
+16,1 kΩ resistor,R7,R_0805_2012Metric,1,,Robu.in,https://robu.in/product/1k-ohm-1-4w-0805-surface-mount-chip-resistor-pack-of-10/,0.0046,,,0.00,Check supplier minimum order value,Yes
+17,5.1 kΩ resistors,"R8, R9",R_0805_2012Metric,2,,Robu.in,https://robu.in/product/era6aeb102vpanasonicsmd-chip-resistor-1-kohm/,3.59,,,0.08,Check supplier minimum order value,Yes
+18,1.78 kΩ resistor,R11,R_0805_2012Metric,1,,Mouser India,https://www.mouser.in/en/ProductDetail/Panasonic-Industry/ERJ-P06F1781V,0.2347,,,0.23,,Yes
+19,3 kΩ resistor,R12,R_0805_2012Metric,1,,Robu.in,https://robu.in/product/rc0805fr-073kl-yageo-res-thick-film-0805-3k-ohm/,0.0021,,,0.00,Check supplier minimum order value,Yes
+20,Tactile push buttons,"SW1, SW2, SW3, SW4, SW5",SW_PUSH_6mm,5,,Robu.in,https://robu.in/product/6x6x5mm-tactile-push-button-switch-pack-of-20/,0.0171,,,0.09,Check supplier minimum order value,Yes
+21,ESP32-WROOM-32E,U1,ESP32-WROOM-32E,1,,Robu.in,https://robu.in/product/espressif-esp32-wroom-32-4m-32mbit-flash-wifi-bluetooth-module/,3.2111,,,3.21,,Yes
+22,DS3231M RTC,U2,SOIC-16W_7.5x10.3mm_P1.27mm,1,,Robu.in,https://robu.in/product/ds3231mtrl-analog-devices-real-time-clock-ic/,3.8405,,,3.84,,Yes
+23,BQ24074RGT charger IC,U3,VQFN-16-1EP_3x3mm_P0.5mm_EP1.6x1.6mm,1,,Robu.in,https://robu.in/product/bq24075rgtt-texas-instruments-vqfn-16-ep3x3-battery-management-rohs/,1.9202,,,1.92,,Yes
+24,TPS63031DSK buck-boost IC,U4,WSON-10-1EP_2.5x2.5mm_P0.5mm_EP1.2x2mm,1,,Robu.in,https://robu.in/product/tps63031dskr-texas-instruments-buck-boost-switching-regulator-ic/,1.8989,,,1.90,,Yes
+,,,,,,,,,,,,
+TOTAL COST,,,,,,,,,,,$14.18,, 
