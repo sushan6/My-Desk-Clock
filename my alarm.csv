@@ -24,4 +24,4 @@ ID,Component,Designators,Footprint,Required Quantity,Purchase Quantity,Supplier,
 23,BQ24074RGT charger IC,U3,VQFN-16-1EP_3x3mm_P0.5mm_EP1.6x1.6mm,1,,Robu.in,https://robu.in/product/bq24075rgtt-texas-instruments-vqfn-16-ep3x3-battery-management-rohs/,1.9202,,,1.92,,Yes
 24,TPS63031DSK buck-boost IC,U4,WSON-10-1EP_2.5x2.5mm_P0.5mm_EP1.2x2mm,1,,Robu.in,https://robu.in/product/tps63031dskr-texas-instruments-buck-boost-switching-regulator-ic/,1.8989,,,1.90,,Yes
 ,,,,,,,,,,,,
-TOTAL COST,,,,,,,,,,,$14.18,, 
+TOTAL COST,,,,,,,,,,,"14.18",,
