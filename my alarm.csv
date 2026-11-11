@@ -15,7 +15,7 @@ ID,Component,Designators,Footprint,Required Quantity,Purchase Quantity,Supplier,
 14,4.7 kΩ resistors,"R3, R4, R13",R_0805_2012Metric,3,,Robu.in,https://robu.in/product/crcw08054k70fkeac-vishay-intertech-4-7k-0805-chip-resistor/,0.0075,,,0.02,Check supplier minimum order value,Yes
 15,100 kΩ resistors,"R5, R6",R_0805_2012Metric,2,,Robu.in,https://robu.in/product/rc0805fr-13100kl-yageo-smd-chip-resistor-100-kohm/,0.0110,,,0.02,Check supplier minimum order value,Yes
 16,1 kΩ resistor,R7,R_0805_2012Metric,1,,Robu.in,https://robu.in/product/1k-ohm-1-4w-0805-surface-mount-chip-resistor-pack-of-10/,0.0046,,,0.00,Check supplier minimum order value,Yes
-17,5.1 kΩ resistors,"R8, R9",R_0805_2012Metric,2,,Robu.in,https://robu.in/product/era6aeb102vpanasonicsmd-chip-resistor-1-kohm/,3.59,,,0.08,Check supplier minimum order value,Yes
+17,5.1 kΩ resistors,"R8, R9",R_0805_2012Metric,2,,Robu.in,https://robu.in/product/era6aeb102vpanasonicsmd-chip-resistor-1-kohm/,0.0383,,,0.08,Check supplier minimum order value,Yes
 18,1.78 kΩ resistor,R11,R_0805_2012Metric,1,,Mouser India,https://www.mouser.in/en/ProductDetail/Panasonic-Industry/ERJ-P06F1781V,0.2347,,,0.23,,Yes
 19,3 kΩ resistor,R12,R_0805_2012Metric,1,,Robu.in,https://robu.in/product/rc0805fr-073kl-yageo-res-thick-film-0805-3k-ohm/,0.0021,,,0.00,Check supplier minimum order value,Yes
 20,Tactile push buttons,"SW1, SW2, SW3, SW4, SW5",SW_PUSH_6mm,5,,Robu.in,https://robu.in/product/6x6x5mm-tactile-push-button-switch-pack-of-20/,0.0171,,,0.09,Check supplier minimum order value,Yes
@@ -23,5 +23,4 @@ ID,Component,Designators,Footprint,Required Quantity,Purchase Quantity,Supplier,
 22,DS3231M RTC,U2,SOIC-16W_7.5x10.3mm_P1.27mm,1,,Robu.in,https://robu.in/product/ds3231mtrl-analog-devices-real-time-clock-ic/,3.8405,,,3.84,,Yes
 23,BQ24074RGT charger IC,U3,VQFN-16-1EP_3x3mm_P0.5mm_EP1.6x1.6mm,1,,Robu.in,https://robu.in/product/bq24075rgtt-texas-instruments-vqfn-16-ep3x3-battery-management-rohs/,1.9202,,,1.92,,Yes
 24,TPS63031DSK buck-boost IC,U4,WSON-10-1EP_2.5x2.5mm_P0.5mm_EP1.2x2mm,1,,Robu.in,https://robu.in/product/tps63031dskr-texas-instruments-buck-boost-switching-regulator-ic/,1.8989,,,1.90,,Yes
-,,,,,,,,,,,,
 TOTAL COST,,,,,,,,,,,"14.18",,
